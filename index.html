@@ -13,6 +13,7 @@
         body{
             background-color: rgb(66, 66, 66);
             margin: 0;
+            font-family: verdana,sans-serif;
         }
         header{
             background-color: green;
@@ -21,18 +22,8 @@
             border-radius: 10px;
 
         }
-        #search{
-            position: absolute;
-            top: 50px;
-            right: 400px;
-            height: 50px;
-            width: 550px;
-            border-radius: 25px;
-            text-align: center;
-            border: white;
-        }
         img{
-            vertical-align: middle;
+            vertical-align: horizontal;
         }
         .slideshow-container{
             max-width: 1000px;
@@ -49,7 +40,7 @@
             width:auto;
             padding: 16px;
             margin-top: -22px;
-            color: white;
+            color: black;
             font-weight: bold;
             font-size: 18px;
             transition: 0.6s ease;
@@ -65,7 +56,7 @@
             background-color:rgba(0,0,0,0.8);
         }
         .text{
-            color: #f2f2f2;
+            color: #000000;
             font-size: 15px;
             padding: 8px 12px;
             position: absolute;
@@ -90,36 +81,42 @@
             display: inline-block;
             transition: background-color 0.6s ease;
         }
+        .active, .dot:hover{
+            background-color: #717171;
+        }
+        .fade{
+            animation-name:fade;
+            animation-duration:1.5s;
+        }
+        @keyframes fade{
+            from{opacity:.4}
+            to {opacity:1}
+        }
+        @media only screen and (max-width:300px){
+            .prev, .next,.text{font-size:11px}
+        }
     </style>
 </head>
 <body>
-    <header>
-        <input type="search" placeholder="search" id="search"><i class="fa fa-search" style="position: relative; left: 800px;
-        top: -10px; font-size: 25px;"></i>
-        <i class='fas fa-user' style='font-size:40px; color: white; position: absolute; bottom:550px; right: 50px;'></i>
-        <i class='fas fa-heart' style="color:white; position: absolute;
-        font-size: 40px; right: 250px;"></i>
-        <i class="fa fa-shopping-cart" style="color: white; position: absolute; font-size: 40px; right: 150px;" ></i>
-        <i class="fas fa-hard-hat" style="color: white; font-size: 50px; position: relative; left: 50px;"></i>
-        </header>
         <div class="slideshow-container">
-            <div class="mySlides fade">
+            <div class="mySlides fade" id="slide1">
                 <div class="numbertext">1 / 3</div>
                 <img src="https://www.guiaobra.com.br/assets/layout/img/produtos/cimento-poty-obras-estruturais-saco-de-50kg-votoran-89368650.jpg" style="width: 100%;">
                 <div class="text">Cimento</div>
             </div>
-            <div class="mySlides fade">
+            <div class="mySlides fade" id="slide2">
                 <div class="numbertext">2 / 3</div>
                 <img src="https://dcdn.mitiendanube.com/stores/003/317/653/products/tijolo-ceramico-tipo-baianao-115-x-14-x24-medidas11-71379a4fd1f5d2e0ea16884127891028-1024-1024.png" style="width: 100%;">
                 <div class="text">Tijolo Baiano</div>
             </div>
-            <div class="mySlides fade">
+            <div class="mySlides fade" id="slide3">
                 <div class="numbertext">3 / 3</div>
                 <img src="https://img.odcdn.com.br/wp-content/uploads/2024/07/castelo-de-areia-1920x1080.jpg" style="width: 100%;">
                 <div class="text">Areia</div>
+            </div>
                 <a class="prev" onclick="plusSlides(-1)">❮</a>
                 <a class="next" onclick="plusSlides(1)">❯</a>
-        </div>
+        
         </div>
         <br>
         <div style="text-align: center;">
@@ -127,5 +124,41 @@
          <span class="dot" onclick="currentSlide(2)"></span>
          <span class="dot" onclick="currentSlide(3)"></span>
         </div>
+        <script>
+            let slideIndex = 1;
+            var timer= null;
+            showSlides(slideIndex);
+
+            function plusSlides(n){
+                clearTimeout(timer)
+                showSlides(slideIndex +=n);
+                
+            }
+
+            function currentSlide(n){
+                clearTimeout(timer)
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n){
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                if(n==undefined){n= ++slideIndex}
+                if(n>slides.length) {slideIndex=1}
+                if(n<1) {slideIndex = slides.length}
+                for(i=0;i<slides.length; i++){
+                    slides[i].style.display = "none"
+                }
+                for(i=0;i<dots.length;i++){
+                  dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display ="block";
+                dots[slideIndex-1].className+=" active";
+                timer = setTimeout(showSlides,5000)
+            }
+
+            
+        </script>
 </body>
 </html>

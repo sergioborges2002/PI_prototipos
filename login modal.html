@@ -113,7 +113,7 @@
             padding-top: 10px;
         }
 
-        #mic-button{
+        #mic-btn{
             background-color: white;
             color: rgb(71, 71, 71);
             border: 1px solid rgb(212, 212, 212);
@@ -125,6 +125,7 @@
             text-overflow: ellipsis;
             text-align: center;
             word-spacing: 0.25px;
+            border-radius: 5px;
             
             
             
@@ -140,6 +141,10 @@
       .bsk-container{
         margin-top: 5px;
         display: flex;
+      }
+      .mic_btn_text{
+        position:relative;
+        left: 13px;
       }
     </style>
 </head>
@@ -171,11 +176,11 @@
                     data-login_uri="http://localhost:5500" data-auto_prompt="false">
                 </div>
                 <div class="bsk-container">
-                    <button class="bsk-btn bsk-btn-default" id="mic-button">
+                    <button class="bsk-btn bsk-btn-default" id="mic-btn">
                         <object type="image/svg+xml"
                             data="https://s3-eu-west-1.amazonaws.com/cdn-testing.web.bas.ac.uk/scratch/bas-style-kit/ms-pictogram/ms-pictogram.svg"
                             class="x-icon"></object>
-                        Fazer Login com Microsoft</button>
+                        <div class="mic_btn_text">Fazer Login com Microsoft</div></button>
                 </div>
 
             </div>

@@ -7,12 +7,17 @@
 
     <title>Document</title>
     <style>
-body{
-    background-color: rgb(161, 140, 140);
-}
+        *{
+            margin: 0;
+            border: 0;
+        }
+        body {
+            background-color: rgb(161, 140, 140);
+            
+        }
+
         .product {
             position: relative;
-            overflow: hidden;
             padding: 20px;
         }
 
@@ -54,7 +59,7 @@ body{
             padding: 5px;
             border-radius: 5px;
             color: darkgreen;
-            right: 10px;
+            right: 80px;
             top: 10px;
             text-transform: capitalize;
         }
@@ -65,7 +70,7 @@ body{
             left: 50%;
             transform: translateX(-50%);
             padding: 10px;
-            width: 90%;
+            width: 60%;
             text-transform: capitalize;
             border: none;
             outline: none;
@@ -75,6 +80,13 @@ body{
             cursor: pointer;
             opacity: 0;
 
+        }
+
+        .product-card {
+            flex: 0 0 auto;
+            width: 500px;
+            height: 450px;
+            margin-right: 40px;
         }
 
         .product-card:hover .card-btn {
@@ -90,10 +102,15 @@ body{
             width: 100%;
             height: 100%;
             padding-top: 10px;
+            position: relative;
+            left: 30%;
+
+
         }
 
         .product-brand {
             text-transform: uppercase;
+    
         }
 
         .product-short-description {
@@ -101,7 +118,6 @@ body{
             height: 20px;
             line-height: 20px;
             overflow: hidden;
-            opacity: 0.5;
             text-transform: capitalize;
             margin: 5px 0;
         }
@@ -125,7 +141,7 @@ body{
             width: 50px;
             height: 50px;
             position: absolute;
-            font-size:30px;
+            font-size: 30px;
             top: 230px;
             display: flex;
             justify-content: center;
@@ -133,19 +149,23 @@ body{
             background-color: transparent;
             cursor: pointer;
             z-index: 9;
+            opacity: 0.5;
         }
-        .pre-btn{
-           left:0;
-        
+
+        .pre-btn {
+            left: 0;
+
         }
-        .nxt-btn
-        {
-            right:0;
+
+        .nxt-btn {
+            right: 0;
         }
-.pre-btn:hover, .nxt-btn:hover{
-    background-color: darkslategray;
-}
-        
+
+        .pre-btn:hover,
+        .nxt-btn:hover {
+            opacity: 1;
+        }
+
     </style>
 </head>
 
@@ -202,10 +222,73 @@ body{
                     <span class="actual-price">$40</span>
                 </div>
             </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">
+                        50% off
+                    </span>
+                    <img src="/img/preto.jpg" class="product-thumb" alt="tinta_preta">
+                    <button class="card-btn">Add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the product</p>
+                    <span class="price">$20</span>
+                    <span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">
+                        50% off
+                    </span>
+                    <img src="/img/vermelho.jpg" class="product-thumb" alt="tinta_vermelha">
+                    <button class="card-btn">Add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the product</p>
+                    <span class="price">$20</span>
+                    <span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">
+                        50% off
+                    </span>
+                    <img src="/img/ocre.jpg" class="product-thumb" alt="tinta_verde">
+                    <button class="card-btn">Add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the product</p>
+                    <span class="price">$20</span>
+                    <span class="actual-price">$40</span>
+                </div>
+            </div>
 
         </div>
 
     </section>
+    <script>
+        const productContainers = [...document.querySelectorAll('.product-container')];
+        const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
+        const preBtn = [...document.querySelectorAll('.pre-btn')];
+
+        productContainers.forEach((item, i) => {
+            let containerDimensions = item.getBoundingClientRect();
+            let containerWidth = containerDimensions.width;
+
+            nxtBtn[i].addEventListener('click', () => {
+                item.scrollLeft += containerWidth;
+            })
+
+            preBtn[i].addEventListener('click', () => {
+                item.scrollLeft -= containerWidth;
+            })
+        })
+    </script>
 </body>
 
 </html>

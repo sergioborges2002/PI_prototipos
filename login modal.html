@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://accounts.google.com/gsi/client" async></script>
+    <script src="https://kit.fontawesome.com/d3b3dc2fe6.js" crossorigin="anonymous"></script>
     <style>
-        body {
-            background-color: #888;
-        }
 
         input.user,
         input[type=password] {
@@ -54,8 +52,8 @@
         }
 
         .modal {
-
             position: fixed;
+            display: ;
             z-index: 1;
             left: 0;
             top: 0;
@@ -78,7 +76,7 @@
         .close {
             position: absolute;
             right: 32%;
-            top: 20%;
+            top: 18%;
             color: #000;
             font-size: 35px;
             font-weight: bold;
@@ -113,47 +111,69 @@
             padding-top: 10px;
         }
 
-        #mic-btn{
+        #mic-btn {
             background-color: white;
             color: #3c4043;
             border: 1px solid rgb(212, 212, 212);
             font-family: "Google Sans", Arial, sans-serif;
-            font-size:14px;
-            font-weight:500;
-            vertical-align:top;
-            flex-grow:1;
+            font-size: 14px;
+            font-weight: 500;
+            vertical-align: top;
+            flex-grow: 1;
             text-overflow: ellipsis;
             text-align: center;
             word-spacing: 0.25px;
             border-radius: 5px;
-            
-            
-            
+
+
+
         }
-        #mic-btn:hover{
+
+        #mic-btn:hover {
             background-color: #62d3d30e;
         }
+
         .x-icon {
-        height: 2em;
-        width: 2em;
-        top: .125em;
-        position:absolute;
-        left:600px;
-        top: 505px;
-      }
-      .bsk-container{
-        margin-top: 5px;
-        display: flex;
-      }
-      .mic_btn_text{
-        position:relative;
-        left: 13px;
-      }
+            height: 2em;
+            width: 2em;
+            top: .125em;
+            position: absolute;
+            left: 600px;
+            top: 505px;
+        }
+
+        .bsk-container {
+            margin-top: 5px;
+            display: flex;
+        }
+
+        .mic_btn_text {
+            position: relative;
+            left: 13px;
+        }
+        #user-icon{
+            font-size: 50px;
+        }
+        #user-icon:hover{
+            cursor:pointer;
+        }
+       @media screen and (max-width:1251px){
+        .close{
+            position: absolute;
+           top:15%;
+        }
+    }
+    @media screen and (max-width:800px){
+        span.registro{
+            position: static;
+            top: ;
+        }
+    }
     </style>
 </head>
 
 <body>
-    <button onclick="document.getElementById('id01').style.display='block'" style="width: auto;">Login</button>
+    <i class="fa-regular fa-user" id="user-icon" onclick="document.getElementById('id01').style.display='block'" style="width: auto;"></i>
 
     <div id="id01" class="modal">
         <form class="modal-content animate" action="/action_page.php" method="post">
@@ -178,13 +198,14 @@
                     data-client_id="684997955517-9vrf1338bik4n4kuj4f1pceunh67dgcf.apps.googleusercontent.com"
                     data-login_uri="http://localhost:5500" data-auto_prompt="false">
                 </div>
-                <div class="bsk-container">
+                <!-- <div class="bsk-container">
                     <button class="bsk-btn bsk-btn-default" id="mic-btn">
                         <object type="image/svg+xml"
                             data="https://s3-eu-west-1.amazonaws.com/cdn-testing.web.bas.ac.uk/scratch/bas-style-kit/ms-pictogram/ms-pictogram.svg"
                             class="x-icon"></object>
-                        <div class="mic_btn_text">Fazer Login com Microsoft</div></button>
-                </div>
+                        <div class="mic_btn_text">Fazer Login com Microsoft</div>
+                    </button>
+                </div> -->
 
             </div>
             <div class="container" style="background-color: #f1f1f1;">
@@ -201,8 +222,8 @@
         let modal = document.querySelector("#id01");
 
         //When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event){
-            if(event.target == modal){
+        window.onclick = function (event) {
+            if (event.target == modal) {
                 modal.style.display = "none";
             }
         }

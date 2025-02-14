@@ -19,7 +19,7 @@
             padding: 15px 15px;
             width: 30%;
             position: absolute;
-            left: 30%;
+            left: 35%;
             border: 2px solid black;
             border-radius: 15px;
 
@@ -33,6 +33,37 @@
         .flexbox{
             display:flex;
             flex-wrap: wrap;
+            flex-direction: row;
+            width: 50%;
+            margin: auto;
+        }
+        .card{
+            box-shadow:0 4px 8px rgba(0,0,0,0.2);
+            max-width: 300px;
+            margin: auto;
+            text-align: center;
+            font-family: arial;
+            background-color: white;
+            margin-bottom:20px ;
+        }
+        .preco{
+            color: grey;
+            font-size:22px;
+        }
+        .card button{
+            border: none;
+            outline: 0;
+            padding: 12px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+
+        }
+        .card button:hover{
+            opacity:0.7;
         }
 
     </style>
@@ -43,13 +74,49 @@
         <input type="search" name="" id="">
     </nav>
     <div class="flexbox">
-        <div><img src="img/azul.jpg" alt=""></div>
-        <div><img src="img/laranja.jpg" alt=""></div>
-        <div><img src="img/ocre.jpg" alt=""></div>
-        <div><img src="img/preto.jpg" alt=""></div>
-        <div><img src="img/verde.jpg" alt=""></div>
-        <div><img src="img/vermelho.jpg" alt=""></div>
-
+        <div class="card">
+            <img src="/img/azul.jpg" alt="azul">
+  <h1>Tinta Azul</h1>
+  <p class="preco">R$0.99</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias mollitia, illum ad ea, quasi saepe error labore temporibus reiciendis eaque porro non nulla minus commodi corporis odio sequi laboriosam est!</p>
+  <p><button>Adicionar ao Carrinho</button></p>
+        </div>
+        <div class="card">
+            <img src="/img/laranja.jpg" alt="laranja">
+  <h1>Tinta Laranja</h1>
+  <p class="preco">R$0.99</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias mollitia, illum ad ea, quasi saepe error labore temporibus reiciendis eaque porro non nulla minus commodi corporis odio sequi laboriosam est!</p>
+  <p><button>Adicionar ao Carrinho</button></p>
+        </div>
+        <div class="card">
+            <img src="/img/ocre.jpg" alt="ocre">
+  <h1>Tinta Ocre</h1>
+  <p class="preco">R$0.99</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias mollitia, illum ad ea, quasi saepe error labore temporibus reiciendis eaque porro non nulla minus commodi corporis odio sequi laboriosam est!</p>
+  <p><button>Adicionar ao Carrinho</button></p>
+        </div>
+        <div class="card">
+            <img src="/img/preto.jpg" alt="preto">
+  <h1>Tinta Preto</h1>
+  <p class="preco">R$0.99</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias mollitia, illum ad ea, quasi saepe error labore temporibus reiciendis eaque porro non nulla minus commodi corporis odio sequi laboriosam est!</p>
+  <p><button>Adicionar ao Carrinho</button></p>
+        </div>
+        <div class="card">
+            <img src="/img/verde.jpg" alt="verde">
+  <h1>Tinta Verde</h1>
+  <p class="preco">R$0.99</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias mollitia, illum ad ea, quasi saepe error labore temporibus reiciendis eaque porro non nulla minus commodi corporis odio sequi laboriosam est!</p>
+  <p><button>Adicionar ao Carrinho</button></p>
+        </div>
+        <div class="card">
+            <img src="/img/vermelho.jpg" alt="vermelho">
+  <h1>Tinta Vermelho</h1>
+  <p class="preco">R$0.99</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias mollitia, illum ad ea, quasi saepe error labore temporibus reiciendis eaque porro non nulla minus commodi corporis odio sequi laboriosam est!</p>
+  <p><button>Adicionar ao Carrinho</button></p>
+        </div>
+    </div>
 
 </body>
 

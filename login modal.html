@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://accounts.google.com/gsi/client" async></script>
     <script src="https://kit.fontawesome.com/d3b3dc2fe6.js" crossorigin="anonymous"></script>
-    <style>
+    <script src="https://accounts.google.com/gsi/client" async></script>
 
+    <style>
         input.user,
         input[type=password] {
             width: 100%;
@@ -111,24 +111,26 @@
             padding-top: 10px;
         }
 
-       @media screen and (max-width:1251px){
-        .close{
-            position: absolute;
-           top:15%;
+        @media screen and (max-width:1251px) {
+            .close {
+                position: absolute;
+                top: 15%;
+            }
         }
-    }
-    @media screen and (max-width:800px){
-        span.registro{
-            position: static;
-            
+
+        @media screen and (max-width:800px) {
+            span.registro {
+                position: static;
+
+            }
         }
-    }
     </style>
 </head>
 
 <body>
     <!--icone de usúario quando clicado abrir modal de login-->
-    <i class="fa-regular fa-user" id="user-icon" onclick="document.getElementById('id01').style.display='block'" style="width: auto;"></i>
+    <i class="fa-regular fa-user" id="user-icon" onclick="document.getElementById('id01').style.display='block'"
+        style="width: auto;"></i>
 
     <div id="id01" class="modal">
         <form class="modal-content animate" action="/action_page.php" method="post">
@@ -146,11 +148,21 @@
                 <label>
                     <input type="checkbox" name="remember">Continuar conectado
                 </label>
-                <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline"
-                    data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left">
+                <div id="g_id_onload" data-client_id="684997955517-9vrf1338bik4n4kuj4f1pceunh67dgcf.apps.googleusercontent.com"
+                    data-login_uri="https://your.domain/your_login_endpoint" data-auto_prompt="false">
                 </div>
+                <div class="g_id_signin"
+                data-type="standard"
+                data-size="large"
+                data-theme="outline"
+                data-text="sign_in_with"
+                data-shape="rectangular"
+                data-logo_alignment="left">
+            </div>
         
-              
+
+
+
 
             </div>
             <div class="container" style="background-color: #f1f1f1;">

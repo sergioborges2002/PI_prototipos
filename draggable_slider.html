@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 70%;
+            margin: auto;
+
+transform: translate(-50%, -50%);
+overflow: hidden
+}
+
+.items-container {
+display: flex;
+
+gap: 10px;
+pointer-events: none;
+position: absolute;
+top: 0;
+left: 0;
+}
+
+.item {
+height: 200px;
+width: 200px;
+border-radius: 5px;
+background-color: lightgrey;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="inner-container">
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+        </div>
+    </div>
+
+    <script>
+       let container = document.querySelector(".container");
+let innerContainer = document.querySelector(".inner-container");
+
+let pressed = false;
+let startX;
+let x;
+
+container.addEventListener("mousedown", (e) => {
+    pressed = true;
+    startX = e.offsetX - innerContainer.offsetLeft;
+    container.style.cursor = "grabbing";
+});
+container.addEventListener("mouseenter",()=>{
+    container.style.cursor = "grab";
+})
+container.addEventListener("mouseup",()=>{
+    container.style.cursor = "grab";
+    pressed = false;
+
+})
+container.addEventListener("mousemove",(e)=>{
+    if(!pressed) return;
+    e.preventDefault();
+    x=e.offsetX;
+    innerContainer.style.left = `${x - startX}px`;
+})
+    </script>
+    
+</body>
+</html>

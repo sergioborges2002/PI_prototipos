@@ -4,8 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        body{
+            background-color: lightgray;
+        }
+
+        nav {
+            padding: 80px;
+            background-color: darkgreen;
+        }
+
+        input[type=search] {
+            padding: 15px 15px;
+            width: 30%;
+            position: absolute;
+            left: 35%;
+            border: 2px solid black;
+            border-radius: 15px;
+            outline: none;
+
+        }
+        .container{
+            display: flex;
+            flex-flow: column nowrap;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .carrinho-header{
+            margin-top:16px;
+        }
+        .carrinho-hearder-card{
+            position: relative;
+            display: flex;
+            padding: 16px 0px;
+            flex-direction: column;
+            -moz-box-pack: justify;
+            justify-content: space-between;
+            background: rgb(255, 255, 255);
+            border-radius: 4px;
+            box-shadow: rgba(60,55,56,0.07) 0px 0px 0px 1px, rgba(60,55,56,0.07) 0px 0px 1px 0px, rgba(60,55,56,0.07) 0px 2px 2px 0px;
+        }
+        .carrinho-hearder-card-body{
+            max-height: 100%;
+            padding: 0px 24px;
+            overflow-y: auto;
+        }
+    </style>
 </head>
 <body>
-    
+    <nav>
+        <input type="search" name="" id="">
+    </nav> 
+    <div class="container">
+        <div class="carrinho-header">
+            <div class="carrinho-header-card">
+                <div class="carrinho-header-card-body"></div>
+            </div>
+            
+        </div>
+    </div>
 </body>
 </html>

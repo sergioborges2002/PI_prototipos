@@ -33,7 +33,29 @@
             margin: auto;
         }
         .card{
-            display: inline-flex;
+            display: flex;
+            flex-direction: row;
+            row-gap: 25px;
+            border: 1px solid gray;
+            border-radius: 2px;
+
+
+        }
+        .card-image{
+            width:20%;
+            float:left;
+        }
+    
+        
+        .card-image{
+            border: 1px solid gray;
+            border-radius: 1px;
+            margin-right: 5px;
+        }
+        .card-title{
+            padding: 20px;
+            border:1px solid gray;
+            border-radius: 1px;
         }
     </style>
 </head>
@@ -42,9 +64,15 @@
         <input type="search" name="" id="">
     </nav>
     <div class="container">
+        <div class="card-title">
+            <h1>Produtos</h1>
+        </div>
 <div class="card">
-    <img src="img/azul.jpg" alt="" >
+    <h3>Tinta Azul<img class="card-image" src="img/azul.jpg"></h3>
+    
+    
 </div>
+
     </div>
     <script>
 

@@ -1,70 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+
     <style>
-        * {
-            margin: 0;
-        }
-        body{
-            background-color: lightgray;
-        }
+        #novoProduto {
+  display: none;
+}
 
-        nav {
-            padding: 80px;
-            background-color: darkgreen;
-        }
+div {
+  /* border: 1px solid black; */
+}
 
-        input[type=search] {
-            padding: 15px 15px;
-            width: 30%;
-            position: absolute;
-            left: 35%;
-            border: 2px solid black;
-            border-radius: 15px;
-            outline: none;
+.container {
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-        }
-        .container{
-            display: flex;
-            flex-flow: column nowrap;
-            margin: 0 auto;
-            width: 100%;
-        }
-        .carrinho-header{
-            margin-top:16px;
-        }
-        .carrinho-hearder-card{
-            position: relative;
-            display: flex;
-            padding: 16px 0px;
-            flex-direction: column;
-            -moz-box-pack: justify;
-            justify-content: space-between;
-            background: rgb(255, 255, 255);
-            border-radius: 4px;
-            box-shadow: rgba(60,55,56,0.07) 0px 0px 0px 1px, rgba(60,55,56,0.07) 0px 0px 1px 0px, rgba(60,55,56,0.07) 0px 2px 2px 0px;
-        }
-        .carrinho-hearder-card-body{
-            max-height: 100%;
-            padding: 0px 24px;
-            overflow-y: auto;
-        }
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+header i {
+  display: none;
+}
+
+section {
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+}
+
+.titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 2;
+}
+
+.produto {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin: 1vh 1vh 1vh 1vh;
+  background-color: lightyellow;
+}
+
+.nome {
+  font-size: medium;
+  font-weight: bold;
+  flex-grow: 2;
+  padding: 2vh;
+}
+
+.autor {
+  font-size: smaller;
+  font-weight: normal;
+  color: grey;
+}
+
+.preco,
+.quantidade {
+  align-self: baseline;
+  font-size: small;
+  margin: 0 1vh;
+}
+
+.miniatura {
+  padding: 1vh;
+  max-width: 20vh;
+  height: auto;
+}
+
+.logo img {
+  padding: 2vh;
+  max-width: 30vh;
+  border-radius: 50%;
+  height: auto;
+}
+
+#total {
+  /* border: 1px solid red; */
+  align-self: flex-end;
+  font-weight: bold;
+}
+
+/* telas menores que 480px */
+@media screen and (max-width: 480px) {
+
+  header i {
+    display: flow-root;
+    font-size: x-large
+  }
+
+  section {
+    display: flex;
+    flex-flow: column;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .produto {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: lightcyan;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .preco,
+  .qtd {
+    font-weight: bold;
+    align-self: flex-end;
+    font-size: small;
+    margin: 0 1vh 1vh 0;
+  }
+
+  .miniatura-img {
+    padding: 1vh;
+    max-width: 15vh;
+    height: auto;
+  }
+
+}
     </style>
+    <title>Carrinho de Comprassssssssssssssssssssssss</title>
 </head>
+
 <body>
-    <nav>
-        <input type="search" name="" id="">
-    </nav> 
     <div class="container">
-        <div class="carrinho-header">
-            <div class="carrinho-header-card">
-                <div class="carrinho-header-card-body"></div>
+        <header>
+            <div class="logo">
+                <img src="img/logo2.jpg" alt="Logo WebStore">
             </div>
-            
+            <div><i class="bi bi-cart"></i></div>
+            <div class="titulo">
+                <h3>Carrinho de Compras</h3>
+            </div>
+        </header>
+        <section>
+
+            <article class="d-flex justify-content-end">
+                <div id="novoItem" class="m-1">
+                    <button class="btn btn-success bi-plus" onclick="novoItemECancelar()">Novo Item</button>
+                </div>
+                <div id="limparCarrinho" class="m-1">
+                    <button class="btn btn-warning bi-x" onclick="limparCarrinho()">Limpar Carrinho</button>
+                </div>
+            </article>
+
+            <article class="mt-2" id="novoProduto">
+                <div class="border border-dark form-row">
+                    <div class="h6 col-md-8">
+                        <label>Produto</label>
+                        <input type="text" class="form-control" id="produtoNovoItem">
+                    </div>
+                    <div class="h6 col-md-2">
+                        <label>Preço</label>
+                        <input type="number" value="0" min="0" class="form-control" id="precoNovoItem">
+                    </div>
+                    <fieldset disabled class="col-md-1">
+                        <div class="h6">
+                            <label>Quantidade</label>
+                            <input type="number" value="1" placeholder="1" class="form-control" id="quantidadeNovoItem">
+                        </div>
+                    </fieldset>
+                    <div class="h6 col-md-1 mt-auto">
+                        <input type="checkbox" name="presente" id="presenteNovoItem">
+                        <label for="presente">Presente</label>
+                    </div>
+                    
+                    <div id="cancelar" class="m-1">
+                        <button class="btn btn-secondary bi-arrow-left" onclick="novoItemECancelar()">Cancelar</button>
+                    </div>
+
+                    <div id="adicionarItem" class="m-1 ml-auto">
+                        <button class="btn btn-success bi-check" onclick="calculaPrecoTotal()">Adicionar</button>
+                    </div>
+                    <div id="excluirItem" class="m-1">
+                        <button class="btn btn-danger bi-trash" onclick="excluirItem()">Excluir</button>
+                    </div>
+                </div>
+            </article>
+
+            <article>
+                <div class="produto" id="prod_1">
+                    <div>
+                        <img class="miniatura" src="img/azul.jpg" alt="Imagem do Produto">
+                    </div>
+                    <div class="nome">
+                        <p>Engenharia de Software</p>
+                        <p class="autor">Ian Sommerville</p>
+                    </div>
+                    <div class="preco">
+                        <p>R$ <span class="valor">194,24</span></p>
+                    </div>
+                    <div class="quantidade">
+                        <input type="number" name="quantidade" min="1" max="5" size="2" value="0" onchange="calculaPrecoTotal()">
+                    </div>
+                    <div class="presente">
+                        <input type="checkbox" name="presente" onchange="calculaPrecoTotal()">
+                        <label for="presente">Presente</label>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <div class="produto" id="prod_2">
+                    <div>
+                        <img class="miniatura" src="img/verde.jpg" alt="Imagem do Produto">
+                    </div>
+                    <div class="nome">
+                        <p>Inteligência Artificial</p>
+                        <p class="autor">Stuart Russel, Peter Norvig</p>
+                    </div>
+                    <div class="preco">
+                        <p>R$ <span class="valor">200,00</span></p>
+                    </div>
+                    <div class="quantidade">
+                        <input type="number" name="quantidade" min="1" max="5" size="2" value="0" onchange="calculaPrecoTotal()">
+                    </div>
+                    <div class="presente">
+                        <input type="checkbox" name="presente" onchange="calculaPrecoTotal()">
+                        <label for="presente">Presente</label>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <div id="total">
+            <p>Total: <span id="valor-total"></span></p>
         </div>
     </div>
+    <script>
+// Arredonda Aalor
+function arred(d, casas) {
+  let aux = Math.pow(10, casas)
+  return Math.floor(d * aux) / aux
+}
+
+// Transforma String para Float
+function textToFloat(text) {
+  let valor = text.replace("R$ ", "").replace(",", ".");
+  return parseFloat(valor);
+}
+
+// Transforma Float para String
+function floatToText(float) {
+  let text = "R$ " + float;
+  return text;
+}
+
+// Calcula o Valor Total do Pedido 
+function calculaPrecoTotal() {
+  let totalPedido = 0;
+
+  if (document.getElementById('novoProduto').style.display !== 'none') {
+    let itemAdicionado = adicionarItem();
+    if (itemAdicionado !== null || typeof itemAdicionado !== "undefined" || isNaN(itemAdicionado) !== true) {
+      totalPedido = itemAdicionado;
+    }
+  }
+
+  // Cria uma lista com todos elementos que tem a classe 'produto'
+  let lista = Array.from(document.querySelectorAll('.produto'))
+  
+  for (let i = 0; i < lista.length; i++) {   
+    let quantidade = document.querySelectorAll('.quantidade input')[i];
+    let vlQuantidade = textToFloat(quantidade.value);
+
+    let preco = document.querySelectorAll('.preco span')[i];
+    let vlPreco = textToFloat(preco.textContent);
+
+    let presente = document.querySelectorAll('.presente input')[i];
+    let vlPresente = presente.checked;
+
+    if (vlPresente == true) {
+      totalPedido = totalPedido + (vlQuantidade * vlPreco + 5);
+    } else {
+      totalPedido = totalPedido + (vlQuantidade * vlPreco);
+    }
+  }
+  escreveValorTotal(totalPedido);
+}
+
+// Escrever o Valor Total do Pedido
+function escreveValorTotal(total) {
+  let valorTotal = document.getElementById('valor-total');
+  valorTotal.innerHTML = floatToText(total);
+}
+
+// Limpa o Carrinho
+function limparCarrinho() {
+  let listaQuantidades = document.querySelectorAll('.quantidade input');
+
+  listaQuantidades.forEach(function(quantidade) {
+    let presente = document.querySelector('.presente input');
+    presente.checked = false;
+    quantidade.value = 0;
+    escreveValorTotal(0);
+  });
+}
+
+// Função para Informar ou Cancelar Novo Item
+function novoItemECancelar() {
+  if (document.getElementById('novoProduto').style.display == 'none') {
+    document.getElementById('novoProduto').style.display = 'block';
+    document.getElementById('novoItem').style.display    = 'none';
+  } else {
+    document.getElementById('novoProduto').style.display = 'none';
+    document.getElementById('novoItem').style.display    = 'block';
+  }
+}
+
+// Função para Adicionar Novo Item
+function adicionarItem() {
+  let produto = document.getElementById('produtoNovoItem').value;
+  let preco = textToFloat(document.getElementById('precoNovoItem').value);
+  let presente = document.getElementById('presenteNovoItem').checked;
+
+  if (produto == "" || preco == 0) {
+    alert('Informe o Nome e o Preço do Produto.')
+  } else {
+    if (presente === true) {
+      preco = preco + 5;
+    }
+  }
+  return preco;
+}
+
+// Função para Excluir Novo Item
+function excluirItem() {
+  document.getElementById('produtoNovoItem').value = '';
+  document.getElementById('precoNovoItem').value   = 0;
+  calculaPrecoTotal(0);
+}
+
+// 'DOMContentLoaded' é um evento disparado quando o HTML é totalmente carregado
+document.addEventListener("DOMContentLoaded", function (event) {
+  // Chamo a função assim que o HTML for carregado
+  novoItemECancelar();
+});
+    </script>
 </body>
+
 </html>

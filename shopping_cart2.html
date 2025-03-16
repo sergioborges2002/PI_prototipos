@@ -3,19 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
-          /* REMOVER SETAS DE INPUT DE NÚMERO */
+
+        /* REMOVER SETAS DE INPUT DE NÚMERO */
         /* Chrome, Safari, Edge, Opera */
         input::-webkit-outer-spin-button,
-        inut::-webkit-inner-spin-button {
+        input::-webkit-inner-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
@@ -38,14 +38,14 @@
             border: 2px solid black;
             border-radius: 15px;
             outline: none;
-
         }
 
-        body{
+        body {
             background: #f6d6f6;
-            font-family: 'Lato',sans-serif;
+            font-family: 'Lato', sans-serif;
         }
-        body>header{
+
+        body>header {
             background: #111;
             color: white;
             font-size: 24px;
@@ -53,175 +53,248 @@
             display: flex;
             justify-content: center;
         }
-        body>main{
+
+        body>main {
             background: #fff;
             padding: 0 30px 30px;
         }
-        body>main .page-title{
+
+        body>main .page-title {
             font-size: 40px;
             padding: 50px 0;
             text-align: center;
         }
-        body>main .content{
+
+        body>main .content {
             display: flex;
         }
-        body>main .content section{
+
+        body>main .content section {
             flex: 1;
         }
-        body>main .content aside{
+
+        body>main .content aside {
             min-width: 250px;
         }
-        button{
+
+        button {
             cursor: pointer;
-            font-family:'Lato', sans-serif;
+            font-family: 'Lato', sans-serif;
         }
-        table{
+
+        table {
             width: 100%;
             border-collapse: collapse;
         }
-        table thead tr{
+
+        table thead tr {
             border-bottom: 3px solid #eee;
         }
-        table thead tr th{
-            text-align:left;
-            padding-bottom:10px;
-            text-transform:uppercase;
+
+        table thead tr th {
+            text-align: left;
+            padding-bottom: 10px;
+            text-transform: uppercase;
             color: #666;
         }
-        table tbody tr{
+
+        table tbody tr {
             border-bottom: 3px solid #eee;
         }
-        table tbody tr:last-child{
-            border:0;
-        }
-      table tbody tr td{
-        padding: 30px 0;
-      }
-      .product{
-        display: flex;
-        align-items: center;
-      }
-      .product img{
-        border-radius: 6px;
-        width: 20%;
-      }
-      .product .info{
-        margin-left: 20px;
-      }
-      .product .info .name{
-        font-size: 20px;
-        margin-bottom: 10px;
-      }
-      .product .info .category{
-        color: #666;
-      }
-      .qty{
-        background: #eee;
-        display: inline-flex;
-        padding: 0 0 ;
-        justify-content: space-around;
-        align-items:center;
-        min-width: 60px;
-        border-radius:20px;
-        overflow: hidden;
-        height: 30px;
-      }
-      .qty span{
-        margin: 0 10px;
-      }
-      .qty button{
-        display: flex;
-        align-items: center;
-        background:transparent;
-        border: 0;
-        padding:0 10px;
-        font-size:20px;
-        height: 100%;
-      }
-      .qty button:hover{
-        background: #ddd;
-      }
-      .remove{
-        background:#eee;
-        border:0;
-        width: 30px;
-        height: 30px;
-        border-radius:100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-      }
-      .remove:hover{
-        background:#ddd;
-      }
-      aside{
-        margin-left:30px;
-      }
-      aside .box{
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        background: #eee;
-        color: #222;
-      }
-      aside .box header{
-        padding: 15px 20px;
-        font-size: 18px;
-        border-bottom: 1px solid #ccc;
-      }
-      aside .box .info{
-        padding: 20px;
-        font-size:16px;
-      }
-      aside .box .info >div{
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        color: #555;
-      }
-      aside .box .info > div:last-child{
-        margin: 0;
-      }
-      aside .box .info button{
-        color: #28a745;
-        background: transparent;
-        border: 0;
-        display: flex;
-        align-items:center;
-        font-size: 16px;
-      }
-      aside .box footer{
-        padding: 15px 20px;
-        background: #ddd;
-        font-size: 18px;
-        display: flex;
-        justify-content: space-between;
-      }
-      aside>button{
-        border: 0;
-        padding:15px 0;
-        color: white;
-        background: #28a745;
-        display: block;
-        width: 100%;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 16px;
-      }
-      aside>button:hover{
-        background: #3bc55b;
-      }
 
+        table tbody tr:last-child {
+            border: 0;
+        }
+
+        table tbody tr td {
+            padding: 30px 0;
+        }
+
+        .product {
+            display: flex;
+            align-items: center;
+        }
+
+        .product img {
+            border-radius: 6px;
+            width: 20%;
+        }
+
+        .product .info {
+            margin-left: 20px;
+        }
+
+        .product .info .name {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product .info .category {
+            color: #666;
+        }
+
+        .qty {
+            background: #eee;
+            display: inline-flex;
+            padding: 0 0;
+            justify-content: space-around;
+            align-items: center;
+            min-width: 60px;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 30px;
+        }
+
+        .qty span {
+            margin: 0 10px;
+        }
+
+        .qty button {
+            display: flex;
+            align-items: center;
+            background: transparent;
+            border: 0;
+            padding: 0 10px;
+            font-size: 20px;
+            height: 100%;
+        }
+
+        .qty button:hover {
+            background: #ddd;
+        }
+
+        .remove {
+            background: #eee;
+            border: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .remove:hover {
+            background: #ddd;
+        }
+
+        aside {
+            margin-left: 30px;
+        }
+
+        aside .box {
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            background: #eee;
+            color: #222;
+        }
+
+        aside .box header {
+            padding: 15px 20px;
+            font-size: 18px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        aside .box .info {
+            padding: 20px;
+            font-size: 16px;
+        }
+
+        aside .box .info>div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        aside .box .info>div:last-child {
+            margin: 0;
+        }
+
+        aside .box .info button {
+            color: #28a745;
+            background: transparent;
+            border: 0;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        aside .box footer {
+            padding: 15px 20px;
+            background: #ddd;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        aside>button {
+            border: 0;
+            padding: 15px 0;
+            color: white;
+            background: #28a745;
+            display: block;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 16px;
+        }
+
+        aside>button:hover {
+            background: #3bc55b;
+        }
+
+        /* Estilos para o pop-up de login */
+        .login-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-popup .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .login-popup .popup-content input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-popup .popup-content button {
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-popup .popup-content button:hover {
+            background: #3bc55b;
+        }
     </style>
-    <title>Carrinho de Comprassssssssssssssssssssssss
-    </title>
+    <title>Carrinho de Compras</title>
 </head>
 
 <body>
     <nav>
         <input type="search" name="" id="">
     </nav>
-    <header><span>Carrinho de Comprassssssssssssssssssssssss</span></header>
+    <header><span>Carrinho de Compras</span></header>
     <main>
         <div class="page-title">Seu Carrinho</div>
         <div class="content">
@@ -246,7 +319,6 @@
                                         <div class="category">Categoria</div>
                                     </div>
                                 </div>
-
                             </td>
                             <td>R$ 120</td>
                             <td>
@@ -270,7 +342,6 @@
                                         <div class="category">Categoria</div>
                                     </div>
                                 </div>
-
                             </td>
                             <td>R$ 120</td>
                             <td>
@@ -294,24 +365,51 @@
                     <div class="info">
                         <div><span>Sub-total</span><span>R$ 418</span></div>
                         <div><span>Frete</span><span>Gratuito</span></div>
-                    <div>
-                    <button>Adicionar cupom de desconto
-                        <i class="bx bx-right-arrow-alt"></i>
-                    </button>
+                        <div>
+                            <button>Adicionar cupom de desconto
+                                <i class="bx bx-right-arrow-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <footer>
+                        <span>Total</span>
+                        <span>R$ 418</span>
+                    </footer>
                 </div>
-                </div>
-                <footer>
-                    <span>Total</span>
-                    <span>R$ 418</span>
-                </footer>
-                </div>
-            
-            <button>Finalizar Compra</button>
-                
+                <button>Finalizar Compra</button>
             </aside>
         </div>
     </main>
 
+    <div class="login-popup" id="loginPopup">
+        <div class="popup-content">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Usuário">
+            <input type="password" id="password" placeholder="Senha">
+            <button onclick="login()">Entrar</button>
+        </div>
+    </div>
+
+    <script>
+        const usuario = "admin";
+        const senha = "123";
+
+        window.addEventListener("load", function () {
+            document.getElementById("loginPopup").style.display = "flex";
+        });
+
+        function login() {
+            let user = document.getElementById("username").value;
+            let pass = document.getElementById("password").value;
+
+            if (user === usuario && pass === senha) {
+                alert("Login bem-sucedido!");
+                document.getElementById("loginPopup").style.display = "none";
+            } else {
+                alert("Usuário ou senha incorretos. Tente novamente.");
+            }
+        }
+    </script>
 </body>
 
 </html>

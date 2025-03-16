@@ -1,3 +1,6 @@
 {
-    "dotnet.defaultSolution": "PI_prototype.sln"
+    "dotnet.defaultSolution": "WebApplication1.sln",
+    "dataworkspace.excludedProjects": [
+        "1/1.sqlproj"
+    ]
 }

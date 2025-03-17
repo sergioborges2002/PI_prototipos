@@ -1,0 +1,75 @@
+﻿@model IEnumerable<teste.Models.Produto>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    .flexbox{
+            display:flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            width: 90%;
+            margin: auto;
+        }
+        .card{
+            box-shadow:0 4px 8px rgba(0,0,0,0.2);
+            max-width:300px;
+            margin: auto;
+            text-align: center;
+            font-family: arial;
+            background-color: white;
+            margin-bottom:20px ;
+        }
+        .preco{
+            color: grey;
+            font-size:22px;
+        }
+        .card button{
+            border: none;
+            outline: 0;
+            padding: 12px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+
+        }
+        .card button:hover{
+            opacity:0.7;
+        }
+        .card img{
+            width:50%
+        }
+        a{
+            cursor:pointer;
+        }
+        h1{
+            text-align:center;
+
+        }
+</style>
+
+<h1>Produtos Favoritos</h1>
+<div class="flexbox">
+    @foreach (var produto in Model)
+    {
+        
+            <div class="card">
+                <a asp-controller="Home" asp-action="Produto" asp-route-id="@produto.ProdutoId"><img src="@produto.ImagemUrl" alt="azul"></a>
+                <a asp-controller="Home" asp-action="Produto" asp-route-id="@produto.ProdutoId"><h1>@produto.Nome</h1></a>
+                <p class="preco">@produto.Preco.ToString("C")</p>
+                <p><button>Adicionar ao Carrinho</button></p>
+            </div>
+           
+
+    }
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script>
+    $(document).ready(function(){
+        // Adicione aqui qualquer funcionalidade adicional com jQuery
+    });
+</script>

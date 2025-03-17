@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MB4kxZfGJgI=",
+  "dgSpecHash": "PjU9lphgGvQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Eder\\source\\repos\\teste\\teste\\teste.csproj",
+  "projectFilePath": "C:\\Users\\Eder\\Downloads\\PI_prototipos\\teste\\teste\\teste.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Eder\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Eder\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

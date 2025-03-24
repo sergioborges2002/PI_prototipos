@@ -13,7 +13,7 @@
         }
 
         body {
-            background-color: rgb(158, 255, 226);
+            background-color: rgb(119, 179, 122);
 
         }
 
@@ -42,11 +42,12 @@
             display: flex;
             scroll-behavior: smooth;
             scrollbar-width: none;
-            pointer-events: none;
-            position:absolute;
+            pointer-events: auto;
+            position:relative;
             overflow-x: auto;
             left:0;
-            
+            touch-action: pan-x; /* Better touch handling */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
         }
 
         .product-container::-webkit-scrollbar {
@@ -64,6 +65,7 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+            user-select: none;
         }
 
         .discount-tag {
@@ -299,98 +301,82 @@
 
         </div>
         
-
+        
     </section>
     <button class="nxt-btn">❯</button>
     <script>
-        // const productContainers = [...document.querySelectorAll('.product')];
-        // const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
-        // const preBtn = [...document.querySelectorAll('.pre-btn')];
+        document.addEventListener('DOMContentLoaded', () => {
+            const productContainer = document.querySelector('.product-container');
+            const nxtBtn = document.querySelector('.nxt-btn');
+            const preBtn = document.querySelector('.pre-btn');
 
-        // productContainers.forEach((item, i) => {
-        //     let containerDimensions = item.getBoundingClientRect();
-        //     let containerWidth = containerDimensions.width;
+            // Existing button functionality
+            preBtn.addEventListener('click', () => {
+                productContainer.scrollBy({
+                    left: -500,
+                    behavior: 'smooth'
+                });
+            });
 
-        //     nxtBtn[i].addEventListener('click', () => {
-        //         item.scrollLeft += containerWidth;
-        //     })
+            nxtBtn.addEventListener('click', () => {
+                productContainer.scrollBy({
+                    left: 500,
+                    behavior: 'smooth'
+                });
+            });
 
-        //     preBtn[i].addEventListener('click', () => {
-        //         item.scrollLeft -= containerWidth;
-        //     })
-        // })
-        //Botões de Próximo e Anterior
-        const productContainer = document.querySelector('.product-container');
-        const nxtBtn = document.querySelector('.nxt-btn');
-        const preBtn = document.querySelector('.pre-btn');
+            // Variables for drag/touch functionality
+            let isDragging = false;
+            let startX;
+            let scrollLeft;
 
-        preBtn.addEventListener('click',() => {
-            productContainer.scrollLeft -= 1000;
-        })
-        nxtBtn.addEventListener('click', () => {
-            productContainer.scrollLeft += 1000
-        })
-        // MOVER COM O MOUSE
-        let container = document.querySelector(".product");
-        let innerContainer = document.querySelector(".product-container");
-        
-        let pressed = false;
-        let startX;
-        let x;
+            // Mouse events for desktop drag
+            productContainer.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.pageX - productContainer.offsetLeft;
+                scrollLeft = productContainer.scrollLeft;
+                productContainer.style.cursor = 'grabbing';
+            });
 
-        container.addEventListener("mousedown", (e) => {
-            pressed = true;
-            startX = e.offsetX - innerContainer.offsetLeft;
-            container.style.cursor = "grabbing";
+            productContainer.addEventListener('mouseleave', () => {
+                isDragging = false;
+                productContainer.style.cursor = 'grab';
+            });
+
+            productContainer.addEventListener('mouseup', () => {
+                isDragging = false;
+                productContainer.style.cursor = 'grab';
+            });
+
+            productContainer.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                const x = e.pageX - productContainer.offsetLeft;
+                const walk = (x - startX) * 2; // Multiply for faster/slower scroll
+                productContainer.scrollLeft = scrollLeft - walk;
+            });
+
+            // Touch events for mobile devices
+            productContainer.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                startX = e.touches[0].pageX - productContainer.offsetLeft;
+                scrollLeft = productContainer.scrollLeft;
+            });
+
+            productContainer.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+
+            productContainer.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                const x = e.touches[0].pageX - productContainer.offsetLeft;
+                const walk = (x - startX) * 2;
+                productContainer.scrollLeft = scrollLeft - walk;
+            });
+
+            // Set initial cursor style
+            productContainer.style.cursor = 'grab';
         });
-        
-        container.addEventListener("mouseenter", () => {
-            container.style.cursor = "grab";
-        })
-        container.addEventListener("mouseup", () => {
-            container.style.cursor = "grab";
-            pressed = false;
-        })
-        
-        container.addEventListener("mousemove", (e) => {
-            if (!pressed) return;
-            e.preventDefault();
-            x = e.offsetX;
-            innerContainer.style.left = `${x - startX}px`;
-            boundItems();
-        })
-
-        let boundItems = () => {
-            let outer = container.getBoundingClientRect();
-            let inner = innerContainer.getBoundingClientRect();
-
-            if (parseInt(innerContainer.style.left) > 0) {
-                innerContainer.style.left = "0px";
-            }
-
-            if (inner.right < outer.right) {
-                innerContainer.style.left = `-${inner.width - outer.width}px`;
-            }
-        };
-
-        // EVENTOS TOUCH
-        container.addEventListener("touchstart", (e) => {
-            pressed = true;
-            startX = e.offsetX - innerContainer.offsetLeft;})
-
-            container.addEventListener("touchend",()=>{
-            pressed = false;
-        })
-        container.addEventListener("touchcancel",()=>{
-          pressed = false;
-        })
-        container.addEventListener("touchmove",(e)=>{
-            if (!pressed) return;
-            e.preventDefault();
-            x = e.offsetX;
-            innerContainer.style.left = `${x - startX}px`;
-            boundItems();
-        })
     </script>
 </body>
 

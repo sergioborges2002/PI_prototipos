@@ -2,5 +2,7 @@
     "dotnet.defaultSolution": "WebApplication1.sln",
     "dataworkspace.excludedProjects": [
         "1/1.sqlproj"
-    ]
+    ],
+    "discord.enabled": true,
+    "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }
